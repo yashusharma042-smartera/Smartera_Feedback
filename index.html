@@ -1,164 +1,61 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Smartera — Student Feedback</title>
 <style>
-*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;background:#f4f6fb;color:#182033}
-.hero{background:linear-gradient(135deg,#111c4e,#5145cd);color:#fff;text-align:center;padding:44px 18px 82px}
-.logo{font-size:32px;font-weight:850}.tag{opacity:.88;margin-top:7px}.wrap{max-width:850px;margin:-45px auto 40px;padding:0 16px}
-.card{background:#fff;border-radius:24px;padding:30px;box-shadow:0 18px 55px #15204a18;margin-bottom:18px}
-h1{font-size:28px;margin:8px 0 12px}.intro{color:#667085;line-height:1.6}
-.section-title{font-size:18px;font-weight:800;margin:28px 0 14px}.features{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
-.feature{padding:12px 14px;border:1px solid #e4e7f2;background:#f8f9ff;border-radius:13px;font-size:14px}
-.q{font-size:17px;font-weight:750;line-height:1.5;margin:22px 0 12px}.hint{font-size:13px;color:#8a94a6;font-weight:400}
-.options{display:grid;gap:10px}.opt{display:flex;gap:12px;align-items:center;border:1.5px solid #dfe3eb;border-radius:13px;padding:14px;cursor:pointer}.opt:hover{border-color:#625bf0;background:#f8f8ff}.opt input{accent-color:#5145cd;width:18px;height:18px}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;background:#f5f7fb;color:#172033}
+.hero{background:linear-gradient(135deg,#111c4e,#5145cd);color:#fff;text-align:center;padding:44px 18px 82px}.logo{font-size:32px;font-weight:850}.tag{margin-top:8px;opacity:.88}
+.wrap{max-width:850px;margin:-45px auto 40px;padding:0 16px}.card{background:#fff;border-radius:24px;padding:30px;box-shadow:0 18px 55px #15204a18;margin-bottom:18px}
+.eyebrow{color:#5145cd;font-size:12px;font-weight:850;letter-spacing:1px;text-transform:uppercase}h1{font-size:28px;margin:8px 0 12px}.intro{color:#667085;line-height:1.6}
+.title{font-size:18px;font-weight:800;margin:26px 0 13px}.features{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.feature{padding:12px 14px;border:1px solid #e4e7f2;background:#f8f9ff;border-radius:13px;font-size:14px}
+.q{font-size:17px;font-weight:750;line-height:1.5;margin:24px 0 12px}.hint{font-size:13px;color:#8a94a6;font-weight:400}.options{display:grid;gap:10px}.opt{display:flex;gap:12px;align-items:center;border:1.5px solid #dfe3eb;border-radius:13px;padding:14px;cursor:pointer}.opt:hover{border-color:#625bf0;background:#f8f8ff}.opt input{accent-color:#5145cd;width:18px;height:18px}
 textarea{width:100%;min-height:120px;border:1.5px solid #dfe3eb;border-radius:13px;padding:13px;font:inherit;resize:vertical;outline:0}
-button{border:0;border-radius:13px;padding:15px 20px;background:#5145cd;color:#fff;font-weight:800;font-size:15px;cursor:pointer;width:100%;margin-top:22px}
-.small{font-size:12px;color:#98a2b3;text-align:center;margin-top:12px}
-#admin{display:none}.admin-head{display:flex;justify-content:space-between;align-items:center;gap:12px}.admin-head button{width:auto;margin:0;background:#182033}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:18px 0}.stat{background:#f7f8fc;padding:16px;border-radius:14px}.stat b{font-size:24px;display:block}.barrow{margin:13px 0}.barlabel{display:flex;justify-content:space-between;font-size:13px}.bar{height:10px;background:#e8eaf1;border-radius:20px;overflow:hidden;margin-top:6px}.fill{height:100%;background:#5145cd}.comment{border-top:1px solid #eee;padding:14px 0;color:#4d5668}.admin-login{margin-top:18px}.admin-login input{width:100%;padding:13px;border:1.5px solid #dfe3eb;border-radius:12px;font:inherit}.admin-login button{margin-top:10px}.success{text-align:center;display:none}.check{font-size:38px;margin-bottom:8px}
-@media(max-width:620px){.features{grid-template-columns:1fr}.card{padding:23px}.stats{grid-template-columns:1fr 1fr}.admin-head{align-items:flex-start;flex-direction:column}}
+button{border:0;border-radius:13px;padding:15px 20px;background:#5145cd;color:#fff;font-weight:800;font-size:15px;cursor:pointer;width:100%;margin-top:22px}.small{font-size:12px;color:#98a2b3;text-align:center;margin-top:12px}.success{display:none;text-align:center;padding:35px}.check{font-size:40px;color:#16a34a}
+@media(max-width:620px){.features{grid-template-columns:1fr}.card{padding:23px}h1{font-size:25px}}
 </style>
 </head>
 <body>
 <header class="hero"><div class="logo">Smartera</div><div class="tag">Student feedback • Help shape the future of preparation</div></header>
-
-<main class="wrap">
-<section class="card" id="survey">
-<div style="color:#5145cd;font-size:12px;font-weight:850;letter-spacing:1px;text-transform:uppercase">Founder Research Survey</div>
-<h1>Would you use Smartera?</h1>
-<p class="intro">Imagine one preparation platform that combines tracking, practice, guidance, discipline and community in one place.</p>
-
-<div class="section-title">What Smartera is planned to offer</div>
-<div class="features">
-<div class="feature">📊 Chapter, topic & concept preparation tracking</div>
-<div class="feature">🧠 Mistake-type tracking & analysis</div>
-<div class="feature">⏱️ Study-hours & questions-solved tracking</div>
-<div class="feature">📈 Daily / weekly / monthly / yearly reports</div>
-<div class="feature">🎯 Personalized preparation-flow suggestions</div>
-<div class="feature">📚 Question banks & PYQs</div>
-<div class="feature">📖 Questions from books & exam sources</div>
-<div class="feature">📝 Mock tests & performance analysis</div>
-<div class="feature">🔖 Bookmark & search</div>
-<div class="feature">📅 Study planner & preparation dashboard</div>
-<div class="feature">🔥 Daily streak & leaderboard</div>
-<div class="feature">🤖 Ask AI for preparation help</div>
-<div class="feature">👨‍🏫 Teachers & mentors for guidance</div>
-<div class="feature">💬 Ask Teacher & problem-solving support</div>
-<div class="feature">👥 Student community / Community Box</div>
-<div class="feature">🪙 Coins, rewards & achievement system</div>
-<div class="feature">🎓 Merit + need-based scholarship system</div>
-<div class="feature">🛡️ Verified mentors with mentor levels</div>
-<div class="feature">🙏 Hanuman Mode for focused preparation</div>
-<div class="feature">🏆 Hanuman Score, recovery & rewards</div>
-<div class="feature">🚫 Focus-mode app blocking & discipline system</div>
-<div class="feature">💎 Premium mentorship & paid features</div>
-</div>
-
+<main class="wrap"><section class="card" id="survey">
+<div class="eyebrow">Founder Research Survey</div><h1>Would you use Smartera?</h1>
+<p class="intro">Imagine one preparation platform that combines preparation tracking, practice, personalized guidance, mentors, discipline and community in one place.</p>
+<div class="title">Planned Smartera features</div><div class="features" id="featureList"></div>
 <div class="q">1. If Smartera offered all of the features above, how likely would you be to use it for your preparation?</div>
 <div class="options">
 <label class="opt"><input type="radio" name="use" value="Definitely">Definitely — I would use it</label>
 <label class="opt"><input type="radio" name="use" value="Probably">Probably — if the app works well</label>
 <label class="opt"><input type="radio" name="use" value="Maybe">Maybe — I would try it first</label>
 <label class="opt"><input type="radio" name="use" value="Unlikely">Unlikely — I probably wouldn't use it</label>
-<label class="opt"><input type="radio" name="use" value="No">No — I wouldn't use it</label>
-</div>
-
-<div class="q">2. Which Smartera features would be most valuable to you? <span class="hint">(Select all that apply)</span></div>
-<div class="options" id="featureChoices"></div>
-
-<div class="q">3. Which features would you personally use most often? <span class="hint">(Select up to 3)</span></div>
-<div class="options" id="topChoices"></div>
-
+<label class="opt"><input type="radio" name="use" value="No">No — I wouldn't use it</label></div>
+<div class="q">2. Which features would be most valuable to you? <span class="hint">(Select all that apply)</span></div><div class="options" id="valuable"></div>
+<div class="q">3. Which features would you personally use most often? <span class="hint">(Select up to 3)</span></div><div class="options" id="top"></div>
 <div class="q">4. What is the biggest problem you currently face while preparing for your exam?</div>
-<textarea id="problem" placeholder="For example: I don't know what to study next, I can't track mistakes, I lack guidance..."></textarea>
-
+<textarea id="problem" placeholder="Tell us about the real problem you face..."></textarea>
 <div class="q">5. Would you trust an app to suggest what you should do next based on your preparation data?</div>
-<div class="options">
-<label class="opt"><input type="radio" name="trust" value="Yes">Yes</label>
-<label class="opt"><input type="radio" name="trust" value="Maybe">Maybe, if the suggestions are accurate</label>
-<label class="opt"><input type="radio" name="trust" value="No">No</label>
-</div>
-
+<div class="options"><label class="opt"><input type="radio" name="trust" value="Yes">Yes</label><label class="opt"><input type="radio" name="trust" value="Maybe">Maybe, if the suggestions are accurate</label><label class="opt"><input type="radio" name="trust" value="No">No</label></div>
 <div class="q">6. Would you want guidance from verified teachers/mentors inside the same app?</div>
-<div class="options">
-<label class="opt"><input type="radio" name="mentor" value="Yes">Yes</label>
-<label class="opt"><input type="radio" name="mentor" value="Maybe">Maybe</label>
-<label class="opt"><input type="radio" name="mentor" value="No">No</label>
-</div>
-
-<div class="q">7. Your opinion for such an app <span class="hint">(What do you think about the idea? What would make it genuinely useful to you?)</span></div>
-<textarea id="opinion" placeholder="Share your honest opinion, suggestions, concerns, or features you would add/remove."></textarea>
-
-<button onclick="submitSurvey()">Submit Feedback</button>
-<div class="small">Thank you for helping us understand what students actually need.</div>
+<div class="options"><label class="opt"><input type="radio" name="mentor" value="Yes">Yes</label><label class="opt"><input type="radio" name="mentor" value="Maybe">Maybe</label><label class="opt"><input type="radio" name="mentor" value="No">No</label></div>
+<div class="q">7. Your opinion for such an app <span class="hint">(What do you think about the idea, and what would make it genuinely useful to you?)</span></div>
+<textarea id="opinion" placeholder="Share your honest opinion, suggestions, concerns, or anything you would add/remove."></textarea>
+<button id="submit">Submit Feedback</button><div class="small">Your honest feedback will help shape Smartera.</div>
 </section>
-
-<section class="card success" id="success"><div class="check">✓</div><h2>Thank you for your feedback!</h2><p>Your response has been saved for the Smartera research survey.</p></section>
-
-<section class="card">
-<div class="section-title" style="margin-top:0">Founder Access</div>
-<p class="small" style="text-align:left">Private results dashboard. Students do not need access to this section.</p>
-<div class="admin-login" id="login">
-<input type="password" id="pass" placeholder="Founder password">
-<button onclick="login()">View Feedback Dashboard</button>
-</div>
-</section>
-
-<section class="card" id="admin">
-<div class="admin-head"><div><div class="section-title" style="margin:0">Founder Feedback Dashboard</div><div class="small" style="text-align:left">All responses stored in this browser</div></div><button onclick="logout()">Lock</button></div>
-<div class="stats"><div class="stat"><span>Total responses</span><b id="total">0</b></div><div class="stat"><span>Positive / likely</span><b id="positive">0%</b></div><div class="stat"><span>Would definitely use</span><b id="definite">0%</b></div></div>
-<div class="section-title">Would students use Smartera?</div><div id="useBars"></div>
-<div class="section-title">Most valuable features</div><div id="featureBars"></div>
-<div class="section-title">Student opinions & problems</div><div id="comments"></div>
-<button onclick="downloadCSV()">Export feedback as CSV</button>
-<button onclick="clearData()" style="background:#b42318">Delete all local feedback</button>
-</section>
-</main>
-
+<section class="card success" id="success"><div class="check">✓</div><h2>Thank you! 🎉</h2><p>Your feedback has been submitted successfully.</p></section></main>
 <script>
-const features=[
-"Preparation tracking","Mistake tracking & analysis","Preparation-flow suggestions","Question banks & PYQs","Book & exam questions","Mock tests","Study planner","Reports & dashboard","AI help","Teachers & mentors","Ask Teacher","Community Box","Leaderboard & streak","Coins & rewards","Scholarships","Hanuman Mode","Focus/app blocking","Mentor verification"
-];
-function makeChecks(id){document.getElementById(id).innerHTML=features.map((f,i)=>`<label class="opt"><input type="checkbox" value="${f}">${f}</label>`).join('')}
-makeChecks('featureChoices'); makeChecks('topChoices');
-document.getElementById('topChoices').addEventListener('change',e=>{
- if(e.target.checked && [...document.querySelectorAll('#topChoices input:checked')].length>3){e.target.checked=false;alert('Please select up to 3 features.')}
-});
+const FEATURES=["Preparation tracking","Mistake tracking & analysis","Personalized preparation-flow suggestions","Question banks & PYQs","Book & exam questions","Mock tests & performance analysis","Study planner","Daily/weekly/monthly/yearly reports","AI preparation help","Teachers & mentors","Ask Teacher","Community Box","Leaderboard & daily streak","Coins & rewards","Merit + need-based scholarships","Verified mentor levels","Hanuman Mode","Hanuman Score & rewards","Focus/app blocking","Premium mentorship"];
+const ENDPOINT="https://script.google.com/macros/s/AKfycbzopXXzIKJbX5Mn06q5iiA4HDWtNTh_D2jrYYG5584nf1bMgaIt5KGR3JnPo-o5voe1kA/exec";
+document.getElementById("featureList").innerHTML=FEATURES.map(x=>`<div class="feature">${x}</div>`).join("");
+function checks(id){document.getElementById(id).innerHTML=FEATURES.map(x=>`<label class="opt"><input type="checkbox" value="${x}">${x}</label>`).join("")}checks("valuable");checks("top");
+document.getElementById("top").addEventListener("change",e=>{if(e.target.checked&&document.querySelectorAll("#top input:checked").length>3){e.target.checked=false;alert("Please select up to 3 features.")}});
 function radio(n){return document.querySelector(`input[name="${n}"]:checked`)?.value||""}
-function checked(id){return [...document.querySelectorAll(`#${id} input:checked`)].map(x=>x.value)}
-function submitSurvey(){
- const use=radio('use'); if(!use){alert('Please answer Question 1 before submitting.');return}
- const item={use,valuable:checked('featureChoices'),top:checked('topChoices'),problem:document.getElementById('problem').value.trim(),trust:radio('trust'),mentor:radio('mentor'),opinion:document.getElementById('opinion').value.trim(),time:new Date().toISOString()};
- const data=JSON.parse(localStorage.getItem('smarteraResponses')||'[]');data.push(item);localStorage.setItem('smarteraResponses',JSON.stringify(data));
- document.getElementById('survey').style.display='none';document.getElementById('success').style.display='block';window.scrollTo(0,0);
-}
-function login(){
- if(document.getElementById('pass').value!=='YashuSharma123'){alert('Incorrect password.');return}
- document.getElementById('login').style.display='none';document.getElementById('admin').style.display='block';render();
-}
-function logout(){document.getElementById('admin').style.display='none';document.getElementById('login').style.display='block';document.getElementById('pass').value=''}
-function render(){
- const d=JSON.parse(localStorage.getItem('smarteraResponses')||'[]'),n=d.length;
- document.getElementById('total').textContent=n;
- const pos=d.filter(x=>['Definitely','Probably'].includes(x.use)).length;
- document.getElementById('positive').textContent=n?Math.round(pos/n*100)+'%':'0%';
- document.getElementById('definite').textContent=n?Math.round(d.filter(x=>x.use==='Definitely').length/n*100)+'%':'0%';
- bars('useBars',['Definitely','Probably','Maybe','Unlikely','No'],d.flatMap(x=>x.use?[x.use]:[]));
- const counts={};d.flatMap(x=>[...(x.valuable||[]),...(x.top||[])]).forEach(x=>counts[x]=(counts[x]||0)+1);
- const sorted=features.map(f=>[f,counts[f]||0]).sort((a,b)=>b[1]-a[1]); document.getElementById('featureBars').innerHTML=sorted.map(([k,v])=>`<div class="barrow"><div class="barlabel"><span>${k}</span><span>${v}</span></div><div class="bar"><div class="fill" style="width:${n?Math.min(100,v/n*100):0}%"></div></div></div>`).join('');
- document.getElementById('comments').innerHTML=d.length?d.slice().reverse().map((x,i)=>`<div class="comment"><b>Response ${d.length-i}</b><br><small>${new Date(x.time).toLocaleString()}</small><p><b>Problem:</b> ${esc(x.problem||'—')}</p><p><b>Opinion:</b> ${esc(x.opinion||'—')}</p></div>`).join(''):'<p class="small">No feedback yet.</p>';
-}
-function bars(id,labels,vals){const c={};labels.forEach(x=>c[x]=0);vals.forEach(x=>c[x]=(c[x]||0)+1);const n=vals.length;document.getElementById(id).innerHTML=labels.map(k=>`<div class="barrow"><div class="barlabel"><span>${k}</span><span>${c[k]}</span></div><div class="bar"><div class="fill" style="width:${n?c[k]/n*100:0}%"></div></div></div>`).join('')}
-function esc(s){return s.replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]))}
-function downloadCSV(){
- const d=JSON.parse(localStorage.getItem('smarteraResponses')||'[]');if(!d.length){alert('No feedback to export.');return}
- const rows=[['Time','Use likelihood','Valuable features','Top features','Biggest problem','Trust AI suggestions','Want mentor/teacher','Opinion'],...d.map(x=>[x.time,x.use,(x.valuable||[]).join('; '),(x.top||[]).join('; '),x.problem,x.trust,x.mentor,x.opinion])];
- const csv=rows.map(r=>r.map(v=>`"${String(v||'').replaceAll('"','""')}"`).join(',')).join('\n');
- const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'}));a.download='smartera-feedback.csv';a.click();
-}
-function clearData(){if(confirm('Delete ALL feedback stored in this browser? This cannot be undone.')){localStorage.removeItem('smarteraResponses');render()}}
-</script>
-</body>
-</html>
+function vals(id){return [...document.querySelectorAll(`#${id} input:checked`)].map(x=>x.value)}
+document.getElementById("submit").onclick=async()=>{
+ if(!radio("use"))return alert("Please answer Question 1.");
+ if(ENDPOINT.includes("PASTE_"))return alert("The survey is not connected to its online database yet. Complete the setup guide first.");
+ const payload={use:radio("use"),valuable:vals("valuable"),top:vals("top"),problem:document.getElementById("problem").value.trim(),trust:radio("trust"),mentor:radio("mentor"),opinion:document.getElementById("opinion").value.trim()};
+ const b=document.getElementById("submit");b.disabled=true;b.textContent="Submitting...";
+ try{await fetch(ENDPOINT,{method:"POST",mode:"no-cors",body:JSON.stringify(payload),headers:{"Content-Type":"text/plain;charset=utf-8"}});
+ document.getElementById("survey").style.display="none";document.getElementById("success").style.display="block";window.scrollTo(0,0)
+ }catch(e){alert("Submission failed. Please try again.");b.disabled=false;b.textContent="Submit Feedback"}
+};
+</script></body></html>
